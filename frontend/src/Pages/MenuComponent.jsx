@@ -4,7 +4,7 @@ import { useCart } from '../contexts/CartContext';
 import { Star, Search, ShoppingCart, Package } from 'lucide-react';
 import ReviewModal from '../Components/ReviewModal';
 
-const API_URL = import.meta.envVITE_BACKEND_API_URL;
+const API_URL = import.meta.env.VITE_BACKEND_API_URL;
 
 export default function MenuComponent() {
   const [items, setItems] = useState([]);

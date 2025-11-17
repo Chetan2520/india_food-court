@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react';  // Optional icons, remove if not using lucide-react
 
-const API_URL = import.meta.envVITE_BACKEND_API_URL;
+const API_URL = import.meta.env.VITE_BACKEND_API_URL;
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);  // Toggle between login/register
