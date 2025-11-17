@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Trash2, Edit3, Plus, Search, LogOut, ArrowLeft } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.envVITE_BACKEND_API_URL;
+
 
 const indianStates = [
   'Andhra Pradesh',

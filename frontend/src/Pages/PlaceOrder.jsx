@@ -25,7 +25,7 @@ const PlaceOrder = () => {
         totalAmount: getTotal()
       };
 
-      const response = await axios.post('http://localhost:5000/api/orders', orderData, {
+      const response = await axios.post(`${import.meta.envVITE_BACKEND_API_URL}/orders`, orderData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

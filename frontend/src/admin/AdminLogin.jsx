@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 
-const API_URL =  'http://localhost:5000/api';
+const API_URL =  import.meta.envVITE_BACKEND_API_URL;
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');

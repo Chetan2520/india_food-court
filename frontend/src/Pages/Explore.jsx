@@ -4,7 +4,7 @@ import { Search, ArrowLeft, Star, ShoppingCart, Package } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import ReviewModal from '../Components/ReviewModal';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.envVITE_BACKEND_API_URL;
 
 export default function Explore() {
   const [items, setItems] = useState([]);

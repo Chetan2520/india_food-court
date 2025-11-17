@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { X, Star } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.envVITE_BACKEND_API_URL;
 
 const ReviewModal = ({ isOpen, onClose, itemId, onReviewAdded }) => {
   const [rating, setRating] = useState(0);
