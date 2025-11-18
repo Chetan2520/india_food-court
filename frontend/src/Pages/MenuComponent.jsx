@@ -25,8 +25,8 @@ export default function MenuComponent() {
     try {
       setLoading(true);
       const [itemsRes, reviewsRes] = await Promise.all([
-        axios.get(`${API_URL}/items`),
-        axios.get(`${API_URL}/reviews`)
+        axios.get(`${API_URL}/api/items`),
+        axios.get(`${API_URL}/api/reviews`)
       ]);
 
       const reviewMap = {};
@@ -51,6 +51,7 @@ export default function MenuComponent() {
 
   useEffect(() => {
     fetchItems();
+    
   }, []);
 
   const filteredItems = items.filter(item => {

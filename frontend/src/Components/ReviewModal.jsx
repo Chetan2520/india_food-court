@@ -34,7 +34,7 @@ const handleSubmit = async (e) => {
     if (!token) throw new Error('Please login to submit a review.');
 
     const response = await axios.post(
-      `${API_URL}/reviews/${itemId}`,
+      `${API_URL}/api/reviews/${itemId}`,
       { rating, comment },
       { headers: { Authorization: `Bearer ${token}` } }
     );

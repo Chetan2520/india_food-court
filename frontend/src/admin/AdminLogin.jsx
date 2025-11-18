@@ -17,7 +17,7 @@ export default function AdminLogin() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post(`${API_URL}/auth/login`, { email, password });
+      const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
       localStorage.setItem('token', response.data.token);
       navigate('/admin/dashboard');
     } catch (err) {

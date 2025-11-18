@@ -4,7 +4,6 @@ import { Trash2, Edit3, Plus, Search, LogOut, ArrowLeft } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_BACKEND_API_URL;
 
-
 const indianStates = [
   'Andhra Pradesh',
   'Arunachal Pradesh',
@@ -58,17 +57,19 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchItems(); // No token check, direct fetch
+    
   }, []);
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`${API_URL}/items`); // No auth header
+      const response = await axios.get(`${API_URL}/api/items`); // No auth header
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
     } finally {
       setLoading(false);
     }
+    
   };
 
   const handleLogout = () => {
@@ -103,11 +104,11 @@ export default function AdminDashboard() {
       });
 
       if (editingItem) {
-        await axios.put(`${API_URL}/items/${editingItem._id}`, submitData, {
+        await axios.put(`${API_URL}/api/items/${editingItem._id}`, submitData, {
           headers: { 'Content-Type': 'multipart/form-data' } // No auth
         });
       } else {
-        await axios.post(`${API_URL}/items`, submitData, {
+        await axios.post(`${API_URL}/api/items`, submitData, {
           headers: { 'Content-Type': 'multipart/form-data' } // No auth
         });
       }
@@ -141,7 +142,7 @@ export default function AdminDashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this item?')) return;
     try {
-      await axios.delete(`${API_URL}/items/${id}`); // No auth
+      await axios.delete(`${API_URL}/api/items/${id}`); // No auth
       fetchItems();
     } catch (error) {
       console.error('Error deleting item:', error);
