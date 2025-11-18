@@ -61,16 +61,19 @@ export default function AdminDashboard() {
   }, []);
 
   const fetchItems = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/api/items`); // No auth header
-      setItems(response.data);
-    } catch (error) {
-      console.error('Error fetching items:', error);
-    } finally {
-      setLoading(false);
-    }
-    
-  };
+  try {
+    const response = await axios.get(`${API_URL}/api/items`);
+    // Defensive: Ensure it's an array, adjust path if your API wraps it (e.g., response.data.items)
+    const data = Array.isArray(response.data) ? response.data : (response.data.items || []);
+    setItems(data);
+    console.log('Fetched items:', data); // Optional: For debugging
+  } catch (error) {
+    console.error('Error fetching items:', error);
+    setItems([]); // Explicitly reset to empty array on error
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleLogout = () => {
     localStorage.removeItem('token');
