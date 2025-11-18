@@ -5,7 +5,7 @@ const reviewController = require('../controllers/reviewController');
 const auth = require('../middleware/auth');
 
 // POST: Create review (auth required)
-router.post('/:itemId', auth, reviewController.createReview);
+router.post('/:itemId', reviewController.createReview);
 
 // GET: Reviews for item (PUBLIC)
 router.get('/:itemId', reviewController.getReviews);
